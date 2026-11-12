@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://azolakrweqe.co.za/sitemap-index.xml
+Sitemap: https://azola-krweqe.azola-krweqe.workers.dev/sitemap-index.xml

@@ -59,8 +59,9 @@ are original.
 ## Placeholders to replace before launch
 
 - **Contact details** in `src/data/site.ts`: email, Substack, Instagram
-- **Domain** in `astro.config.mjs`, `public/robots.txt`, `src/data/site.ts`
-  (currently `azolakrweqe.co.za`)
+- **Domain** in `astro.config.mjs`, `public/robots.txt` and `src/data/site.ts`
+  (currently the `workers.dev` address; change these three when
+  `azolakrweqe.co.za` is registered and attached)
 - **Images**: all `public/images/plate-*.svg` and `portrait.svg` are temporary
   graphic placeholders. Replace with approved artwork and photography, and
   update the alt text.

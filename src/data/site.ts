@@ -8,7 +8,7 @@ export const site = {
   email: 'hello@azolakrweqe.co.za',
   substack: 'https://substack.com/@azolakrweqe',
   instagram: 'https://www.instagram.com/azolakrweqe',
-  siteUrl: 'https://azolakrweqe.co.za',
+  siteUrl: 'https://azola-krweqe.azola-krweqe.workers.dev',
 };
 
 export const nav = [
