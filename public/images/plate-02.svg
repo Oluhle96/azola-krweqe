@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-label="Abstract composition with a cream arch">
+  <rect width="1200" height="1500" fill="#15120f"/>
+  <path d="M250 1260V620a350 350 0 0 1 700 0v640z" fill="#f4f0e6"/>
+  <path d="M330 1260V640a270 270 0 0 1 540 0v620z" fill="#15120f"/>
+  <path d="M410 1260V660a190 190 0 0 1 380 0v600z" fill="#a32b20"/>
+  <rect x="1020" y="150" width="2" height="1110" fill="#f4f0e6"/>
+  <rect x="120" y="1320" width="960" height="2" fill="#f4f0e6"/>
+  <circle cx="1021" cy="150" r="7" fill="#a32b20"/>
+</svg>

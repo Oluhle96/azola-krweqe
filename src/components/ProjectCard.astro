@@ -1,0 +1,32 @@
+---
+import type { Project } from '../data/site';
+
+interface Props {
+  project: Project;
+  index?: number;
+}
+
+const { project, index = 1 } = Astro.props;
+const { title, year, role, summary, cover, coverAlt } = project.data;
+---
+
+<a class="project-card" href={`/projects/${project.id}`}>
+  <div class="project-card__media">
+    <img
+      src={cover}
+      alt={coverAlt}
+      width="1200"
+      height="1500"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <div class="project-card__meta">
+    <span>{String(index).padStart(2, '0')}</span>
+    <span>{role} — {year}</span>
+  </div>
+
+  <h3>{title}</h3>
+  <p>{summary}</p>
+</a>

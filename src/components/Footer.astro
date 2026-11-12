@@ -1,0 +1,40 @@
+---
+import { nav, site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 class="footer-title">For exhibitions, writing and collaborations.</h2>
+        <a class="footer-mail" href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <p class="footer-label">Navigate</p>
+          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+        <div>
+          <p class="footer-label">Elsewhere</p>
+          <a href={site.substack} target="_blank" rel="noopener noreferrer">
+            Substack ↗
+          </a>
+          <a href={site.instagram} target="_blank" rel="noopener noreferrer">
+            Instagram ↗
+          </a>
+          <a href={`mailto:${site.email}`}>Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {year} Azola Krweqe</span>
+      <span>Artist &amp; curator</span>
+      <span>Site by [studio]</span>
+    </div>
+  </div>
+</footer>

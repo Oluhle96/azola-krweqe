@@ -1,0 +1,175 @@
+---
+import Base from '../layouts/Base.astro';
+import Figure from '../components/Figure.astro';
+---
+
+<Base
+  title="Home Affairs"
+  description="Home Affairs: The Everyday is the Archive — an exhibition curated by Azola Krweqe about the records we keep and the stories they carry."
+>
+  <header class="exhibition-head wrap">
+    <p class="eyebrow">Exhibition — 2026 / 2027</p>
+    <h1>Home Affairs: <em>The Everyday is the Archive</em></h1>
+    <p class="lede">
+      An exhibition about the records we keep, the stories they carry, and what
+      it means to make a public life out of private material.
+    </p>
+  </header>
+
+  <figure class="exhibition-hero wrap">
+    <img
+      src="/images/plate-01.svg"
+      alt="Abstract exhibition graphic in cream, black and deep red"
+      width="1600"
+      height="700"
+      fetchpriority="high"
+    />
+    <figcaption>
+      <span>Exhibition identity, 2026</span>
+      <span>Graphic design to be confirmed</span>
+    </figcaption>
+  </figure>
+
+  <div class="wrap">
+    <dl class="meta-grid">
+      <div>
+        <dt>Dates</dt>
+        <dd>December 2026 — January 2027</dd>
+      </div>
+      <div>
+        <dt>Venue</dt>
+        <dd>To be confirmed</dd>
+      </div>
+      <div>
+        <dt>Access</dt>
+        <dd>By appointment</dd>
+      </div>
+      <div>
+        <dt>Admission</dt>
+        <dd>Free</dd>
+      </div>
+    </dl>
+  </div>
+
+  <section class="section">
+    <div class="wrap exhibition-grid">
+      <div class="prose">
+        <p>
+          <em>Home Affairs: The Everyday is the Archive</em> begins with a simple
+          question: what do we keep, and why?
+        </p>
+        <p>
+          The exhibition brings together artists and makers whose work treats the
+          ordinary record — a photograph, a document, a garment, a room — as a
+          form of evidence. Rather than illustrating a single history, the works
+          allow several to sit alongside one another, unresolved.
+        </p>
+        <p>
+          Across the gallery, private material meets public language: the forms
+          we fill in, the papers we inherit, the images that outlast us. The
+          exhibition is less interested in the archive as a finished thing than
+          in the act of keeping as a living practice.
+        </p>
+        <p>
+          The full artist and maker list, programme and exhibition dates will be
+          published here as they are confirmed.
+        </p>
+      </div>
+
+      <aside class="exhibition-aside">
+        <p class="eyebrow">Programme</p>
+        <ul class="programme">
+          <li>
+            <time datetime="2026-12">Dec 2026</time>
+            <span>Opening weekend — details to be announced</span>
+          </li>
+          <li>
+            <time datetime="2027-01">Jan 2027</time>
+            <span>Curator’s walkthrough</span>
+          </li>
+          <li>
+            <time datetime="2027-01">Jan 2027</time>
+            <span>Artist and maker conversation</span>
+          </li>
+        </ul>
+
+        <p class="eyebrow">Supporters</p>
+        <p class="note">
+          Funding and support credits will be published here once confirmed.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Artists &amp; makers</p>
+        <h2>The full list is being confirmed.</h2>
+        <span class="note">Updated as approvals are received</span>
+      </div>
+
+      <ul class="artist-list">
+        <li>
+          <span class="index">01</span>
+          <h3>Azola Krweqe</h3>
+          <p>Curator and exhibition-maker</p>
+        </li>
+        <li>
+          <span class="index">02</span>
+          <h3>Artists &amp; makers</h3>
+          <p>To be announced</p>
+        </li>
+        <li>
+          <span class="index">03</span>
+          <h3>Graphic identity</h3>
+          <p>Designer to be confirmed</p>
+        </li>
+        <li>
+          <span class="index">04</span>
+          <h3>Moving image</h3>
+          <p>Collaborators to be confirmed</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Gallery</p>
+        <h2>Installation views</h2>
+      </div>
+
+      <div class="gallery">
+        <Figure
+          src="/images/plate-04.svg"
+          alt="Abstract composition of red arcs on a cream ground"
+          caption="Exhibition graphic, detail."
+        />
+        <Figure
+          src="/images/plate-06.svg"
+          alt="Abstract composition with a red field and black lines"
+          caption="Installation view to be supplied."
+        />
+        <Figure
+          src="/images/plate-02.svg"
+          alt="Cream arch shape on a dark ground"
+          caption="Gallery view to be supplied."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Enquiries</p>
+      <h2>For press, access and exhibition enquiries.</h2>
+      <p style="margin-top:1.2rem">
+        <a class="btn" href="/contact">
+          Contact the studio <span aria-hidden="true">↗</span>
+        </a>
+      </p>
+    </div>
+  </section>
+</Base>

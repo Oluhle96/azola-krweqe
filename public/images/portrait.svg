@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" role="img" aria-label="Abstract portrait placeholder">
+  <rect width="1000" height="1250" fill="#ebe5d6"/>
+  <ellipse cx="500" cy="470" rx="230" ry="280" fill="#a32b20"/>
+  <path d="M150 1250c0-230 157-390 350-390s350 160 350 390z" fill="#15120f"/>
+  <rect x="0" y="1090" width="1000" height="2" fill="#15120f"/>
+  <rect x="120" y="120" width="2" height="1010" fill="#15120f"/>
+  <circle cx="500" cy="470" r="300" fill="none" stroke="#15120f" stroke-width="2"/>
+</svg>

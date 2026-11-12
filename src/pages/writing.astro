@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import { byDate, formatDate, site, type Post } from '../data/site';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing')).sort(byDate) as Post[];
+---
+
+<Base
+  title="Writing"
+  description="Essays, exhibition notes and research by Azola Krweqe, published on Substack."
+>
+  <header class="page-head wrap">
+    <p class="eyebrow">Writing / Research</p>
+    <h1>Notes on images, archives and display.</h1>
+    <p class="lede">
+      Long-form essays, exhibition notes and research-in-progress are published
+      on Substack. Short excerpts are collected here.
+    </p>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="writing-list">
+        {posts.map((post: Post) => (
+          <a
+            class="writing-row"
+            href={post.data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <time datetime={post.data.date.toISOString()}>
+              {formatDate(post.data.date)}
+            </time>
+            <div>
+              <h3>{post.data.title}</h3>
+              <p class="muted" style="margin-top:.45rem;font-size:.95rem">
+                {post.data.excerpt}
+              </p>
+            </div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Subscribe</p>
+      <h2>New writing, sent occasionally.</h2>
+      <p class="lede">
+        Essays and project notes are published on Substack. Subscribe there to
+        receive new writing by email.
+      </p>
+      <p style="margin-top:1.6rem">
+        <a
+          class="btn btn--solid"
+          href={site.substack}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Subscribe on Substack <span aria-hidden="true">↗</span>
+        </a>
+      </p>
+    </div>
+  </section>
+</Base>

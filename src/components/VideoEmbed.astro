@@ -1,0 +1,34 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  caption?: string;
+  provider?: 'youtube' | 'vimeo';
+}
+
+const { id, title, caption, provider = 'youtube' } = Astro.props;
+
+const src =
+  provider === 'vimeo'
+    ? `https://player.vimeo.com/video/${id}?dnt=1`
+    : `https://www.youtube-nocookie.com/embed/${id}?rel=0`;
+---
+
+<figure class="video">
+  <details>
+    <summary>
+      <span class="video__play" aria-hidden="true">▶</span>
+      <span>Play film — {title}</span>
+    </summary>
+    <div class="video__frame">
+      <iframe
+        src={src}
+        title={title}
+        loading="lazy"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </details>
+  {caption && <figcaption><span>{caption}</span></figcaption>}
+</figure>

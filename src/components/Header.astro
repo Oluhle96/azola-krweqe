@@ -1,0 +1,76 @@
+---
+import { nav, site } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+
+const isActive = (href: string) =>
+  href === '/'
+    ? path === ''
+    : path === href || path.startsWith(`${href}/`);
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="/" aria-label="Azola Krweqe — home">
+      <span>Azola</span><span>Krweqe<span class="dot">.</span></span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+    >
+      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__icon" aria-hidden="true"></span>
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="Primary" data-open="false">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      class="header-cta"
+      href={site.substack}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Subscribe <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu = document.getElementById('site-nav');
+
+  if (toggle && menu) {
+    const setOpen = (open: boolean) => {
+      menu.dataset.open = String(open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(menu.dataset.open !== 'true');
+    });
+
+    menu.addEventListener('click', (event) => {
+      if (event.target instanceof HTMLAnchorElement) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+      }
+    });
+  }
+</script>

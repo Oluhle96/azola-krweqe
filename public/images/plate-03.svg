@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-label="Geometric composition with red and black forms">
+  <rect width="1200" height="1500" fill="#f4f0e6"/>
+  <rect x="420" y="760" width="660" height="580" fill="#a32b20"/>
+  <rect x="120" y="120" width="120" height="1180" fill="#15120f"/>
+  <rect x="300" y="120" width="34" height="1180" fill="#15120f"/>
+  <rect x="120" y="120" width="214" height="2" fill="#15120f"/>
+  <circle cx="900" cy="330" r="150" fill="none" stroke="#a32b20" stroke-width="2"/>
+  <circle cx="900" cy="330" r="96" fill="#15120f"/>
+  <rect x="420" y="760" width="660" height="2" fill="#15120f"/>
+</svg>

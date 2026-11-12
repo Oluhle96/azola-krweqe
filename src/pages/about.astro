@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title="About"
+  description="Azola Krweqe is an artist and curator working across exhibition-making, moving image and research."
+>
+  <header class="page-head wrap">
+    <p class="eyebrow">About</p>
+    <h1>A practice of looking, keeping and showing.</h1>
+    <p class="lede">
+      Azola Krweqe is an artist and curator working across exhibition-making,
+      moving image and research.
+    </p>
+  </header>
+
+  <section class="section">
+    <div class="wrap about-grid">
+      <figure class="about-portrait">
+        <img
+          src="/images/portrait.svg"
+          alt="Abstract portrait placeholder in cream, black and deep red"
+          width="1000"
+          height="1250"
+        />
+        <figcaption>
+          <span>Portrait to be supplied</span>
+        </figcaption>
+      </figure>
+
+      <div class="prose about-copy">
+        <p>
+          Her work begins with the material of everyday life — family
+          photographs, public records, inherited objects — and asks how those
+          materials shape the stories we tell about ourselves. She is interested
+          in the archive not as a locked cabinet but as a room people keep
+          returning to: entering it, rearranging it, leaving something behind.
+        </p>
+        <p>
+          Her curatorial practice is collaborative and slow. Projects are
+          developed through conversation with artists and makers, and often take
+          the form of an exhibition, a publication or a film. She works closely
+          with designers to give each project its own visual language, without
+          letting one exhibition speak for the next.
+        </p>
+        <p>
+          <em>Home Affairs: The Everyday is the Archive</em> is her current
+          curatorial project. The full artist and maker list, programme and
+          dates will be published as they are confirmed.
+        </p>
+        <p>
+          A full biography and CV are available on request.
+        </p>
+
+        <a class="btn" href={`mailto:${site.email}?subject=CV%20request`}>
+          Request CV <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Selected projects</p>
+        <h2>Exhibitions, installations and films.</h2>
+        <span class="note">Full CV on request</span>
+      </div>
+
+      <ul class="exhibition-list">
+        <li>
+          <time datetime="2026">2026</time>
+          <span>Home Affairs: The Everyday is the Archive</span>
+          <span class="role">Curator</span>
+        </li>
+        <li>
+          <time datetime="2025">2025</time>
+          <span>A Room Made of Records</span>
+          <span class="role">Installation</span>
+        </li>
+        <li>
+          <time datetime="2024">2024</time>
+          <span>Notes on a Borrowed Image</span>
+          <span class="role">Moving image</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Base>

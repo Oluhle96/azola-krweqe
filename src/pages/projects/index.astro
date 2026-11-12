@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import { byOrder, type Project } from '../../data/site';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(byOrder) as Project[];
+---
+
+<Base
+  title="Projects"
+  description="Exhibitions, installations and moving-image projects by Azola Krweqe."
+>
+  <section class="page-head wrap">
+    <p class="eyebrow">Index</p>
+    <h1>Projects</h1>
+    <p class="lede">
+      Exhibitions, installations and moving-image works, made in collaboration
+      with artists, makers and spaces.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="projects">
+        {projects.map((project: Project, index: number) => (
+          <a class="project-card" href={`/projects/${project.id}`}>
+            <div class="project-card__media">
+              <img
+                src={project.data.cover}
+                alt={project.data.coverAlt}
+                width="1200"
+                height="1500"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="project-card__meta">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <span>{project.data.role} — {project.data.year}</span>
+            </div>
+            <h3>{project.data.title}</h3>
+            <p>{project.data.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
