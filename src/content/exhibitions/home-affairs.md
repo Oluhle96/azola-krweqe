@@ -1,16 +1,36 @@
 ---
-title: "Home Affairs: The Everyday is the Archive"
+title: "Home Affairs"
+subtitle: "The Everyday is the Archive"
 year: "2026"
-role: "Curatorial project"
+dates: "December 2026 — January 2027"
+venue: "To be confirmed"
+status: "Upcoming"
 summary: "An exhibition about the records we keep, the stories they carry, and what it means to make a public life out of private material."
 cover: "/images/plate-01.svg"
 coverAlt: "Abstract exhibition graphic in cream, black and deep red"
 featured: true
 order: 1
-credits:
-  - "Curated by Azola Krweqe"
-  - "Graphic identity: to be confirmed"
-  - "With artists and makers to be announced"
+access: "By appointment"
+admission: "Free"
+curator: "Azola Krweqe"
+programme:
+  - date: "Dec 2026"
+    label: "Opening weekend"
+    description: "Details to be announced"
+  - date: "Jan 2027"
+    label: "Curator’s walkthrough"
+  - date: "Jan 2027"
+    label: "Artist and maker conversation"
+artists:
+  - name: "Azola Krweqe"
+    role: "Curator and exhibition-maker"
+  - name: "Artists & makers"
+    role: "To be announced"
+  - name: "Graphic identity"
+    role: "Designer to be confirmed"
+  - name: "Moving image"
+    role: "Collaborators to be confirmed"
+supporters: []
 gallery:
   - src: "/images/plate-04.svg"
     alt: "Abstract composition of red arcs on a cream ground"

@@ -13,16 +13,18 @@ export const site = {
 
 export const nav = [
   { label: 'Projects', href: '/projects' },
-  { label: 'Home Affairs', href: '/home-affairs' },
+  { label: 'Exhibitions', href: '/exhibitions' },
   { label: 'Writing', href: '/writing' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export type Project = CollectionEntry<'projects'>;
+export type Exhibition = CollectionEntry<'exhibitions'>;
 export type Post = CollectionEntry<'writing'>;
 
-export const byOrder = (a: Project, b: Project) => a.data.order - b.data.order;
+export const byOrder = <T extends { data: { order: number } }>(a: T, b: T) =>
+  a.data.order - b.data.order;
 export const byDate = (a: Post, b: Post) => b.data.date.valueOf() - a.data.date.valueOf();
 
 export const formatDate = (date: Date) =>

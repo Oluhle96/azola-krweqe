@@ -5,7 +5,7 @@ import {
   byDate,
   byOrder,
   formatDate,
-  site,
+  type Exhibition,
   type Post,
   type Project,
 } from '../data/site';
@@ -14,6 +14,9 @@ import { getCollection } from 'astro:content';
 const projects = (await getCollection('projects')).sort(byOrder);
 const featured = projects.filter((project: Project) => project.data.featured).slice(0, 3);
 const writing = (await getCollection('writing')).sort(byDate).slice(0, 3) as Post[];
+const exhibitions = (await getCollection('exhibitions')).sort(byOrder);
+const currentExhibition = (exhibitions.find((exhibition: Exhibition) => exhibition.data.featured)
+  ?? exhibitions[0]) as Exhibition | undefined;
 ---
 
 <Base>
@@ -32,9 +35,11 @@ const writing = (await getCollection('writing')).sort(byDate).slice(0, 3) as Pos
           Exhibition-making, moving image and the records we keep. A practice
           built on the material of ordinary life.
         </p>
-        <a class="btn" href="/home-affairs">
-          Home Affairs — 2026 <span aria-hidden="true">↗</span>
-        </a>
+        {currentExhibition && (
+          <a class="btn" href={`/exhibitions/${currentExhibition.id}`}>
+            {currentExhibition.data.title} — {currentExhibition.data.year} <span aria-hidden="true">↗</span>
+          </a>
+        )}
       </div>
     </div>
 
@@ -98,42 +103,46 @@ const writing = (await getCollection('writing')).sort(byDate).slice(0, 3) as Pos
     </div>
   </section>
 
-  <section class="band">
-    <div class="wrap">
-      <p class="eyebrow">Current exhibition</p>
-      <div class="band__grid">
-        <div>
-          <h2>Home Affairs: The Everyday is the Archive</h2>
-          <p class="band__lede">
-            An exhibition about the records we keep, the stories they carry, and
-            what it means to make a public life out of private material.
-          </p>
-          <a class="btn" href="/home-affairs">
-            Enter the exhibition <span aria-hidden="true">↗</span>
-          </a>
-        </div>
+  {currentExhibition && (
+    <section class="band">
+      <div class="wrap">
+        <p class="eyebrow">Current exhibition</p>
+        <div class="band__grid">
+          <div>
+            <h2>
+              {currentExhibition.data.title}
+              {currentExhibition.data.subtitle && (
+                <span>: <em>{currentExhibition.data.subtitle}</em></span>
+              )}
+            </h2>
+            <p class="band__lede">{currentExhibition.data.summary}</p>
+            <a class="btn" href={`/exhibitions/${currentExhibition.id}`}>
+              Enter the exhibition <span aria-hidden="true">↗</span>
+            </a>
+          </div>
 
-        <dl class="band__details">
-          <div>
-            <dt>Dates</dt>
-            <dd>December 2026 — January 2027</dd>
-          </div>
-          <div>
-            <dt>Venue</dt>
-            <dd>To be confirmed</dd>
-          </div>
-          <div>
-            <dt>Access</dt>
-            <dd>By appointment</dd>
-          </div>
-          <div>
-            <dt>Curated by</dt>
-            <dd>Azola Krweqe</dd>
-          </div>
-        </dl>
+          <dl class="band__details">
+            <div>
+              <dt>Dates</dt>
+              <dd>{currentExhibition.data.dates}</dd>
+            </div>
+            <div>
+              <dt>Venue</dt>
+              <dd>{currentExhibition.data.venue}</dd>
+            </div>
+            <div>
+              <dt>Access</dt>
+              <dd>{currentExhibition.data.access}</dd>
+            </div>
+            <div>
+              <dt>Curated by</dt>
+              <dd>{currentExhibition.data.curator}</dd>
+            </div>
+          </dl>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <section class="section">
     <div class="wrap">

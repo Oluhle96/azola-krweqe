@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import { byOrder, type Exhibition } from '../../data/site';
+import { getCollection } from 'astro:content';
+
+const exhibitions = (await getCollection('exhibitions')).sort(byOrder) as Exhibition[];
+---
+
+<Base
+  title="Exhibitions"
+  description="Current, upcoming and past exhibitions curated by Azola Krweqe."
+>
+  <header class="page-head wrap">
+    <p class="eyebrow">Exhibitions</p>
+    <h1>Exhibitions</h1>
+    <p class="lede">
+      Current, upcoming and past exhibitions, developed with artists, makers
+      and spaces.
+    </p>
+  </header>
+
+  <section class="section">
+    <div class="wrap exhibitions">
+      {exhibitions.map((exhibition) => (
+        <a class="exhibition-row" href={`/exhibitions/${exhibition.id}`}>
+          <div class="exhibition-row__media">
+            <img
+              src={exhibition.data.cover}
+              alt={exhibition.data.coverAlt}
+              width="1200"
+              height="1500"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="exhibition-row__body">
+            <div class="exhibition-row__meta">
+              <span>{exhibition.data.status}</span>
+              <span>{exhibition.data.year}</span>
+            </div>
+            <h2>
+              {exhibition.data.title}
+              {exhibition.data.subtitle && (
+                <>: <em>{exhibition.data.subtitle}</em></>
+              )}
+            </h2>
+            <p>{exhibition.data.summary}</p>
+
+            <dl class="exhibition-row__details">
+              <div>
+                <dt>Dates</dt>
+                <dd>{exhibition.data.dates}</dd>
+              </div>
+              <div>
+                <dt>Venue</dt>
+                <dd>{exhibition.data.venue}</dd>
+              </div>
+            </dl>
+
+            <span class="text-link">
+              View exhibition <span aria-hidden="true">↗</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -8,8 +8,8 @@ coverAlt: "Cream arch shape on a dark ground"
 featured: true
 order: 3
 credits:
-  - "Azola Krweqe"
-  - "Sound: to be confirmed"
+  - credit: "Azola Krweqe"
+  - credit: "Sound: to be confirmed"
 gallery:
   - src: "/images/plate-06.svg"
     alt: "Abstract composition with a red field and black lines"

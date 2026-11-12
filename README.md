@@ -24,24 +24,29 @@ npm run preview   # preview the build
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Home: statement, featured projects, Home Affairs, writing |
-| `/about` | Biography, CV request, selected projects |
+| `/` | Home: statement, featured projects, current exhibition, writing |
+| `/about` | Biography, CV request, selected exhibitions and projects |
 | `/projects` | Project index |
 | `/projects/[slug]` | Project detail, gallery, credits, video |
-| `/home-affairs` | Full exhibition page |
+| `/exhibitions` | Exhibition index |
+| `/exhibitions/[slug]` | Exhibition detail: dates, venue, programme, artists, gallery |
 | `/writing` | Substack essays and newsletter sign-up |
 | `/contact` | Email, enquiries, support |
 | `/404` | Not found |
 
 ## Content
 
-Projects live in `src/content/projects/*.md`, writing in
-`src/content/writing/*.md`. Both are plain Markdown with a small frontmatter
-block, so they can be edited in Pages CMS or directly in the repository.
+Projects live in `src/content/projects/*.md`, exhibitions in
+`src/content/exhibitions/*.md`, and writing in `src/content/writing/*.md`.
+All are plain Markdown with a frontmatter block, so they can be edited in Pages
+CMS or directly in the repository.
 
-To add a project, copy an existing file, change the frontmatter, and add images
-to `public/images/`. The `cover` field is the card and hero image; `gallery`
-takes an array of images with alt text and captions.
+To add a project or exhibition, copy an existing file, change the frontmatter,
+and add images to `public/images/`. The `cover` field is the card and hero
+image; `gallery` takes an array of images with alt text and captions.
+Exhibitions also carry dates, venue, programme, artists and supporters. Old
+`/home-affairs` and `/projects/home-affairs` URLs redirect to
+`/exhibitions/home-affairs` via `public/_redirects`.
 
 ## Deployment
 

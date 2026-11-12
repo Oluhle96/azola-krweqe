@@ -37,10 +37,128 @@ content:
         type: number
       - name: credits
         label: Credits
-        type: list
+        type: object
+        list: true
         fields:
           - name: credit
             label: Credit
+            type: string
+      - name: gallery
+        label: Gallery
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Image
+            type: image
+          - name: alt
+            label: Image description
+            type: string
+          - name: caption
+            label: Caption
+            type: string
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: exhibitions
+    label: Exhibitions
+    path: src/content/exhibitions
+    type: collection
+    view:
+      fields: [title, year, status, featured, order]
+      primary: title
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: year
+        label: Year
+        type: string
+      - name: dates
+        label: Dates
+        type: string
+      - name: venue
+        label: Venue
+        type: string
+      - name: status
+        label: Status
+        type: select
+        options:
+          values: [Current, Upcoming, Past]
+      - name: summary
+        label: Summary
+        type: text
+      - name: cover
+        label: Cover image
+        type: image
+      - name: coverAlt
+        label: Cover image description
+        type: string
+      - name: featured
+        label: Feature on the home page
+        type: boolean
+      - name: order
+        label: Sort order
+        type: number
+      - name: access
+        label: Access
+        type: string
+      - name: admission
+        label: Admission
+        type: string
+      - name: curator
+        label: Curator
+        type: string
+      - name: programme
+        label: Programme
+        type: object
+        list: true
+        fields:
+          - name: date
+            label: Date
+            type: string
+          - name: label
+            label: Event
+            type: string
+          - name: description
+            label: Description
+            type: string
+      - name: artists
+        label: Artists and makers
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: role
+            label: Role
+            type: string
+      - name: supporters
+        label: Supporters
+        type: object
+        list: true
+        fields:
+          - name: credit
+            label: Supporter
+            type: string
+      - name: gallery
+        label: Gallery
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Image
+            type: image
+          - name: alt
+            label: Image description
+            type: string
+          - name: caption
+            label: Caption
             type: string
       - name: body
         label: Body

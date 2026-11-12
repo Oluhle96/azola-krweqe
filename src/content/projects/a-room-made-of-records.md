@@ -8,8 +8,8 @@ coverAlt: "Geometric composition with red blocks and black vertical bars"
 featured: true
 order: 2
 credits:
-  - "Azola Krweqe"
-  - "Installation photography to be supplied"
+  - credit: "Azola Krweqe"
+  - credit: "Installation photography to be supplied"
 gallery:
   - src: "/images/plate-05.svg"
     alt: "Cream circles arranged on a dark ground"
