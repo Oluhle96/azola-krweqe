@@ -1,106 +1,114 @@
 # Setup — GitHub + Cloudflare
 
-One-time steps. Everything after this is `git push`.
+How this site is hosted, and how to change it.
 
-## 1. Create the GitHub repository
+## Current live site
 
-1. Go to <https://github.com/new>.
-2. Name it `azola-krweqe` (private or public — either works).
-3. Do **not** add a README, `.gitignore` or licence; the repo already has them.
-4. Create the repository, then push this folder:
+**https://azola-krweqe.azola-krweqe.workers.dev**
 
-```bash
-cd ~/projects/azola-website
-git remote add origin https://github.com/<your-username>/azola-krweqe.git
-git branch -M main
-git push -u origin main
-```
+- **GitHub repository:** <https://github.com/Oluhle96/azola-krweqe> (public)
+- **Cloudflare Worker:** `azola-krweqe`
+- **Cloudflare account ID:** `1c20fadb0f088dd3e8bbcfd2f7ca7e64`
 
-If you use the GitHub CLI instead:
+## How deployment works
 
-```bash
-gh repo create azola-krweqe --private --source=. --remote=origin --push
-```
+The repository is connected to **Cloudflare Workers Builds**. Every push to
+`main` triggers a build on Cloudflare:
 
-## 2. Create a Cloudflare API token
-
-1. Open <https://dash.cloudflare.com/profile/api-tokens>.
-2. **Create Token** → use the **Edit Cloudflare Workers** template.
-3. Permissions should include:
-   - Account → Workers Scripts → Edit
-   - Account → Workers KV Storage → Edit (only if we add KV later)
-   - Zone → Workers Routes → Edit (only when a custom domain is attached)
-4. Scope it to your account. Copy the token — it is shown once.
-
-## 3. Find your Account ID
-
-Cloudflare dashboard → **Workers & Pages** → the Account ID is in the right-hand
-sidebar, or on the dashboard home under **Account ID**.
-
-## 4. Add both as GitHub secrets
-
-Repository → **Settings** → **Secrets and variables** → **Actions** →
-**New repository secret**:
-
-| Name | Value |
+| Setting | Value |
 | --- | --- |
-| `CLOUDFLARE_API_TOKEN` | the token from step 2 |
-| `CLOUDFLARE_ACCOUNT_ID` | the account ID from step 3 |
+| Repository | `Oluhle96/azola-krweqe` |
+| Production branch | `main` |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
+| Node version | `NODE_VERSION=22` |
 
-## 5. Deploy
+The build output is `dist/`, which `wrangler.jsonc` points at. The Worker name
+in `wrangler.jsonc` must stay `azola-krweqe` so the URL and any future custom
+domain keep working.
 
-Push to `main` (or run the workflow manually from the **Actions** tab). The
-workflow builds the site and runs `wrangler deploy`.
+Builds and their logs are visible in the Cloudflare dashboard:
 
-The first deploy prints a URL like:
+**Workers & Pages → azola-krweqe → Deployments**
 
-```
-https://azola-krweqe.<your-subdomain>.workers.dev
-```
+## Day-to-day editing
 
-That is the live site. HTTPS is automatic.
-
-## 6. Custom domain (when the .co.za is registered)
-
-1. Add the domain to Cloudflare (free plan) and change the nameservers at the
-   registrar.
-2. In `wrangler.jsonc`, add a route or custom domain:
-
-```jsonc
-"routes": [{ "pattern": "azolakrweqe.co.za", "custom_domain": true }]
-```
-
-3. Update the `site` value in `astro.config.mjs` and the URLs in
-   `public/robots.txt` and `src/data/site.ts`.
-4. Push. Cloudflare issues the certificate automatically.
-
-## 7. Editing with Pages CMS
+### With Pages CMS (for Azola)
 
 1. Install the Pages CMS GitHub app on the repository:
    <https://app.pagescms.org/>
-2. Sign in at <https://app.pagescms.org/> and open the repository.
+2. Sign in and open `Oluhle96/azola-krweqe`.
 3. The `.pages.yml` file defines two collections: **Projects** and **Writing**.
-4. Test the editing flow with Azola before launch: add a project, replace an
-   image, edit a caption, publish, and confirm the change appears after the
-   Action finishes.
+4. Edits are committed to `main`, which starts a Cloudflare build
+   automatically.
 
-## Local deploy (optional)
+Test the full flow with Azola before launch: add a project, replace an image,
+change a caption, publish, and confirm the site updates after the build.
+
+### Directly in the repository
+
+- Projects: `src/content/projects/*.md`
+- Writing: `src/content/writing/*.md`
+- Images: `public/images/`
+- Site details (email, social links): `src/data/site.ts`
+- Design tokens and layout: `src/styles/global.css`
+
+## Local development
+
+```bash
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # output in ./dist
+npm run preview   # preview the build
+```
+
+To deploy manually from this machine (only needed for emergencies):
 
 ```bash
 npx wrangler login
 npm run deploy
 ```
 
-`npm run deploy` builds the site and runs `wrangler deploy` from your machine.
-Useful for testing before wiring GitHub Actions.
+## Custom domain (when the .co.za is registered)
+
+1. Add the domain to Cloudflare (free plan) and change the nameservers at the
+   registrar.
+2. In `wrangler.jsonc`, add:
+
+```jsonc
+"routes": [{ "pattern": "azolakrweqe.co.za", "custom_domain": true }]
+```
+
+3. Update the site URL in three places:
+   - `astro.config.mjs` → `site`
+   - `src/data/site.ts` → `siteUrl`
+   - `public/robots.txt` → `Sitemap`
+4. Push. Cloudflare issues the certificate automatically.
+
+## GitHub Actions (fallback, currently disabled)
+
+`.github/workflows/deploy.yml` can deploy with `wrangler-action` instead of
+Workers Builds. It is disabled because GitHub Actions is locked on this
+account for a billing reason. Do not enable it while Workers Builds is active,
+or every push will deploy twice.
+
+If it is ever needed, add these repository secrets:
+
+| Name | Value |
+| --- | --- |
+| `CLOUDFLARE_API_TOKEN` | API token with **Account → Workers Scripts → Edit** |
+| `CLOUDFLARE_ACCOUNT_ID` | `1c20fadb0f088dd3e8bbcfd2f7ca7e64` |
+
+Then enable the workflow and disable Workers Builds.
 
 ## Troubleshooting
 
-- **`npm ci` fails in Actions** — the lockfile is out of date. Run
-  `npm install` locally and commit `package-lock.json`.
-- **401 from Cloudflare** — the API token is wrong, expired, or scoped to the
-  wrong account.
-- **404 on a route** — check that the build produced `dist/<route>/index.html`
-  and that `wrangler.jsonc` points at `./dist`.
-- **Old page after deploy** — Cloudflare caches static assets. Hard-refresh, or
-  check the deployment in the Cloudflare dashboard.
+- **Build fails on Cloudflare** — open the build log. The usual cause is a
+  missing package in `package.json` or a content file that does not match the
+  schema in `src/content.config.ts`.
+- **Site shows old content** — wait for the build to finish, then hard-refresh.
+- **404 on a route** — confirm `dist/<route>/index.html` exists after a local
+  build and that `wrangler.jsonc` still points at `./dist`.
+- **Images missing** — files must be in `public/images/` and referenced as
+  `/images/filename.ext`.

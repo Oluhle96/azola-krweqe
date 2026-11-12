@@ -9,7 +9,7 @@ static site with Astro and deployed to Cloudflare Workers from GitHub.
 - **GitHub** — source of truth, version history and deployment trigger
 - **Cloudflare Workers** — hosting, SSL and the `workers.dev` address
 - **Pages CMS** — browser editing for projects and writing (`.pages.yml`)
-- **GitHub Actions** — build and deploy on every push to `main`
+- **Cloudflare Workers Builds** — build and deploy on every push to `main`
 
 ## Local development
 
@@ -45,9 +45,13 @@ takes an array of images with alt text and captions.
 
 ## Deployment
 
-Every push to `main` runs `.github/workflows/deploy.yml`, builds the site and
-deploys `./dist` to the `azola-krweqe` Worker. See `SETUP.md` for the one-time
-GitHub and Cloudflare setup.
+The repository is connected to **Cloudflare Workers Builds**. Every push to
+`main` builds the site with `npm run build` and deploys `./dist` to the
+`azola-krweqe` Worker. See `SETUP.md` for the build settings and the one-time
+setup.
+
+The GitHub Actions workflow in `.github/workflows/deploy.yml` is kept as a
+fallback but is disabled. Workers Builds is the active pipeline.
 
 ## Design
 
