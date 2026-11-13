@@ -1,18 +1,18 @@
 /* ---------------------------------------------------------------
    Azola Krweqe — design system
-   Editorial, artwork-led. Warm paper, black type, deep red accent.
+   Editorial, artwork-led. Warm grey paper, classic black type,
+   mid-grey accents.
    --------------------------------------------------------------- */
 
 :root {
-  --paper: #f4f0e6;
-  --paper-2: #ebe5d6;
-  --ink: #15120f;
-  --ink-soft: #2b2620;
-  --muted: #6e665c;
-  --red: #a32b20;
-  --red-deep: #7c1f17;
-  --line: rgba(21, 18, 15, 0.16);
-  --line-strong: rgba(21, 18, 15, 0.4);
+  --paper: #f1f0ed;
+  --paper-2: #e3e2de;
+  --ink: #111110;
+  --ink-soft: #2a2a27;
+  --muted: #6b6a64;
+  --grey: #7a7973;
+  --line: rgba(17, 17, 16, 0.14);
+  --line-strong: rgba(17, 17, 16, 0.38);
   --sans: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
   --mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
   --serif: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
@@ -63,12 +63,12 @@ button {
 }
 
 ::selection {
-  background: var(--red);
+  background: var(--ink);
   color: var(--paper);
 }
 
 :focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 
@@ -150,7 +150,7 @@ time {
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--muted);
 }
 
 .eyebrow::before {
@@ -206,8 +206,8 @@ time {
 }
 
 .text-link:hover {
-  color: var(--red);
-  border-color: var(--red);
+  color: var(--grey);
+  border-color: var(--grey);
 }
 
 .btn {
@@ -236,8 +236,8 @@ time {
 }
 
 .btn--solid:hover {
-  background: var(--red);
-  border-color: var(--red);
+  background: var(--ink-soft);
+  border-color: var(--ink-soft);
 }
 
 .btn--disabled {
@@ -273,7 +273,7 @@ time {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--line);
-  background: rgba(244, 240, 230, 0.94);
+  background: rgba(241, 240, 237, 0.94);
   backdrop-filter: blur(12px);
 }
 
@@ -303,7 +303,7 @@ time {
 }
 
 .wordmark .dot {
-  color: var(--red);
+  color: var(--grey);
 }
 
 .nav {
@@ -325,8 +325,8 @@ time {
 
 .nav a:hover,
 .nav a[aria-current='page'] {
-  color: var(--red);
-  border-color: var(--red);
+  color: var(--grey);
+  border-color: var(--grey);
 }
 
 .header-cta {
@@ -338,7 +338,7 @@ time {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--red);
+  color: var(--grey);
   white-space: nowrap;
 }
 
@@ -414,7 +414,7 @@ time {
 }
 
 .hero__title em {
-  color: var(--red);
+  color: var(--grey);
 }
 
 .hero__aside {
@@ -568,12 +568,12 @@ figcaption {
   color: var(--muted);
 }
 
-/* ---------- red band ---------- */
+/* ---------- black band ---------- */
 
 .band {
   margin-top: clamp(3rem, 7vw, 7rem);
   padding-block: clamp(3rem, 6vw, 6rem);
-  background: var(--red);
+  background: var(--ink);
   color: var(--paper);
 }
 
@@ -582,7 +582,7 @@ figcaption {
 }
 
 .band .eyebrow {
-  color: rgba(244, 240, 230, 0.72);
+  color: rgba(241, 240, 237, 0.72);
 }
 
 .band__grid {
@@ -601,17 +601,17 @@ figcaption {
   max-width: 44ch;
   margin-top: 1.2rem;
   font-size: clamp(1rem, 1.2vw, 1.12rem);
-  color: rgba(244, 240, 230, 0.85);
+  color: rgba(241, 240, 237, 0.85);
 }
 
 .band .btn {
   margin-top: 2rem;
-  border-color: rgba(244, 240, 230, 0.55);
+  border-color: rgba(241, 240, 237, 0.55);
 }
 
 .band .btn:hover {
   background: var(--paper);
-  color: var(--red);
+  color: var(--ink);
   border-color: var(--paper);
 }
 
@@ -621,7 +621,7 @@ figcaption {
   gap: 1.4rem;
   margin: 0;
   padding-top: 1.4rem;
-  border-top: 1px solid rgba(244, 240, 230, 0.35);
+  border-top: 1px solid rgba(241, 240, 237, 0.35);
 }
 
 .band__details dt {
@@ -630,7 +630,7 @@ figcaption {
   font-size: 0.62rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(244, 240, 230, 0.65);
+  color: rgba(241, 240, 237, 0.65);
 }
 
 .band__details dd {
@@ -656,7 +656,7 @@ figcaption {
 }
 
 .writing-row:hover {
-  color: var(--red);
+  color: var(--grey);
 }
 
 .writing-row time {
@@ -687,7 +687,7 @@ figcaption {
 }
 
 .site-footer .eyebrow {
-  color: rgba(244, 240, 230, 0.6);
+  color: rgba(241, 240, 237, 0.6);
 }
 
 .footer-top {
@@ -707,7 +707,7 @@ figcaption {
   display: inline-block;
   margin-top: 1.6rem;
   padding-bottom: 0.2rem;
-  border-bottom: 1px solid rgba(244, 240, 230, 0.45);
+  border-bottom: 1px solid rgba(241, 240, 237, 0.45);
   font-family: var(--mono);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
@@ -731,7 +731,7 @@ figcaption {
   font-size: 0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(244, 240, 230, 0.55);
+  color: rgba(241, 240, 237, 0.55);
 }
 
 .footer-links a {
@@ -746,7 +746,7 @@ figcaption {
 }
 
 .footer-links a:hover {
-  color: #e7b7ad;
+  color: #cfcec8;
 }
 
 .footer-bottom {
@@ -755,12 +755,12 @@ figcaption {
   justify-content: space-between;
   gap: 0.8rem 2rem;
   padding-top: 1.2rem;
-  border-top: 1px solid rgba(244, 240, 230, 0.22);
+  border-top: 1px solid rgba(241, 240, 237, 0.22);
   font-family: var(--mono);
   font-size: 0.6rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(244, 240, 230, 0.55);
+  color: rgba(241, 240, 237, 0.55);
 }
 
 /* ---------- page head ---------- */
@@ -777,7 +777,7 @@ figcaption {
 }
 
 .page-head h1 em {
-  color: var(--red);
+  color: var(--grey);
 }
 
 /* ---------- meta grid ---------- */
@@ -843,7 +843,7 @@ figcaption {
 .prose blockquote {
   margin: 2rem 0;
   padding-left: 1.4rem;
-  border-left: 2px solid var(--red);
+  border-left: 2px solid var(--ink);
   font-family: var(--serif);
   font-size: clamp(1.3rem, 2vw, 1.6rem);
   font-style: italic;
@@ -857,7 +857,7 @@ figcaption {
 }
 
 .prose a:hover {
-  color: var(--red);
+  color: var(--grey);
 }
 
 /* ---------- project detail ---------- */
@@ -950,7 +950,7 @@ figcaption {
 }
 
 .pager a:hover {
-  color: var(--red);
+  color: var(--grey);
 }
 
 /* ---------- about ---------- */
@@ -995,7 +995,7 @@ figcaption {
 }
 
 .exhibition-list time {
-  color: var(--red);
+  color: var(--grey);
 }
 
 .exhibition-list .role {
@@ -1017,7 +1017,7 @@ figcaption {
 }
 
 .exhibition-head h1 em {
-  color: var(--red);
+  color: var(--grey);
 }
 
 .exhibition-grid {
@@ -1055,7 +1055,7 @@ figcaption {
 }
 
 .programme time {
-  color: var(--red);
+  color: var(--grey);
   font-size: 0.62rem;
 }
 
@@ -1078,7 +1078,7 @@ figcaption {
 .artist-list .index {
   font-family: var(--mono);
   font-size: 0.64rem;
-  color: var(--red);
+  color: var(--grey);
 }
 
 .artist-list h3 {
@@ -1101,7 +1101,7 @@ figcaption {
   display: inline-block;
   margin-top: 1.5rem;
   padding-bottom: 0.12em;
-  border-bottom: 2px solid var(--red);
+  border-bottom: 2px solid var(--ink);
   font-size: clamp(1.5rem, 4vw, 3.2rem);
   font-weight: 500;
   line-height: 1.1;
@@ -1111,7 +1111,7 @@ figcaption {
 }
 
 .contact-email:hover {
-  color: var(--red);
+  color: var(--grey);
 }
 
 .contact-grid {
@@ -1139,8 +1139,8 @@ figcaption {
 }
 
 .contact-grid a:hover {
-  color: var(--red);
-  border-color: var(--red);
+  color: var(--grey);
+  border-color: var(--grey);
 }
 
 /* ---------- video ---------- */
@@ -1172,7 +1172,7 @@ figcaption {
 }
 
 .video summary:hover {
-  color: var(--red);
+  color: var(--grey);
 }
 
 .video__play {
@@ -1209,7 +1209,7 @@ figcaption {
 .notfound h1 {
   font-size: clamp(5rem, 18vw, 14rem);
   line-height: 0.8;
-  color: var(--red);
+  color: var(--grey);
 }
 
 .notfound p {
@@ -1268,7 +1268,7 @@ figcaption {
 }
 
 .exhibition-row__body h2 em {
-  color: var(--red);
+  color: var(--grey);
 }
 
 .exhibition-row__body p {
@@ -1305,7 +1305,7 @@ figcaption {
 }
 
 .exhibition-list a:hover {
-  color: var(--red);
+  color: var(--grey);
 }
 
 /* ---------- responsive ---------- */

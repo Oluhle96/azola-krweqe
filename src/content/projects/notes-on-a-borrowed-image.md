@@ -4,7 +4,7 @@ year: "2024"
 role: "Moving image"
 summary: "A short film essay on the afterlives of a single photograph, and the people who keep returning to it."
 cover: "/images/plate-02.svg"
-coverAlt: "Cream arch shape on a dark ground"
+coverAlt: "Light grey arch shape on a black ground"
 featured: true
 order: 3
 credits:
@@ -12,7 +12,7 @@ credits:
   - credit: "Sound: to be confirmed"
 gallery:
   - src: "/images/plate-06.svg"
-    alt: "Abstract composition with a red field and black lines"
+    alt: "Abstract composition with a grey field and black lines"
     caption: "Film still to be supplied."
 ---
 

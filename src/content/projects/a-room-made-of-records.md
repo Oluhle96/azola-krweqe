@@ -4,7 +4,7 @@ year: "2025"
 role: "Installation"
 summary: "A study of the room as a container for memory, built from borrowed furniture, paper and light."
 cover: "/images/plate-03.svg"
-coverAlt: "Geometric composition with red blocks and black vertical bars"
+coverAlt: "Geometric composition with grey blocks and black vertical bars"
 featured: true
 order: 2
 credits:

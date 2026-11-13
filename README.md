@@ -67,8 +67,10 @@ fallback but is disabled. Workers Builds is the active pipeline.
 
 ## Design
 
-The visual direction takes cues from MOWAA (wearemowaa.org): warm paper, strong
-editorial hierarchy, oversized imagery, mono labels and a single deep red
+The visual direction takes cues from MOWAA (wearemowaa.org) and MBR Projects
+(mbrprojects.co.za): warm grey paper, classic black type, strong editorial
+hierarchy, oversized imagery and mono labels. The palette is deliberately
+monochrome — light greys, mid-grey accents and black bands — with no colour
 accent. It is not a reproduction — the type, layout system and content model
 are original.
 

@@ -8,7 +8,7 @@ status: Upcoming
 summary: An exhibition about the records we keep, the stories they carry, and
   what it means to make a public life out of private material.
 cover: /images/plate-01.svg
-coverAlt: Abstract exhibition graphic in cream, black and deep red
+coverAlt: Abstract exhibition graphic in grey and black
 featured: true
 order: 1
 access: By appointment
@@ -18,9 +18,9 @@ programme:
   - date: February 2027
     label: Opening weekend
     description: Details to be announced
-  - date: Jan 2027
+  - date: March 2027
     label: Curator’s walkthrough
-  - date: Jan 2027
+  - date: April 2027
     label: Artist and maker conversation
 artists:
   - name: Azola Krweqe
@@ -33,13 +33,13 @@ artists:
     role: Collaborators to be confirmed
 gallery:
   - src: /images/plate-04.svg
-    alt: Abstract composition of red arcs on a cream ground
+    alt: Abstract composition of grey arcs on a light grey ground
     caption: Exhibition graphic, detail.
   - src: /images/plate-06.svg
-    alt: Abstract composition with a red field and black lines
+    alt: Abstract composition with a grey field and black lines
     caption: Installation view to be supplied.
   - src: /images/plate-02.svg
-    alt: Cream arch shape on a dark ground
+    alt: Light grey arch shape on a black ground
     caption: Gallery view to be supplied.
 ---
 *Home Affairs: The Everyday is the Archive* begins with a simple question: what do we keep, and why?
