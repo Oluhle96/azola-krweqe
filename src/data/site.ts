@@ -8,11 +8,11 @@ export const site = {
 };
 
 export const nav = [
-  { label: 'Projects', href: '/projects' },
-  { label: 'Exhibitions', href: '/exhibitions' },
-  { label: 'Writing', href: '/writing' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: settings.navProjects, href: '/projects' },
+  { label: settings.navExhibitions, href: '/exhibitions' },
+  { label: settings.navWriting, href: '/writing' },
+  { label: settings.navAbout, href: '/about' },
+  { label: settings.navContact, href: '/contact' },
 ];
 
 export type Project = CollectionEntry<'projects'>;

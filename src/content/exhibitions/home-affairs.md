@@ -1,7 +1,7 @@
 ---
 title: Home Affairs
 subtitle: The Everyday is the Archive
-year: "2026"
+year: "2027"
 dates: February 2027 — June 2027
 venue: To be confirmed
 status: Upcoming

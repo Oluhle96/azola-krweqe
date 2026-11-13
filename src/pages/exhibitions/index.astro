@@ -1,22 +1,17 @@
 ---
 import Base from '../../layouts/Base.astro';
+import page from '../../data/pages/exhibitions.json';
 import { byOrder, type Exhibition } from '../../data/site';
 import { getCollection } from 'astro:content';
 
 const exhibitions = (await getCollection('exhibitions')).sort(byOrder) as Exhibition[];
 ---
 
-<Base
-  title="Exhibitions"
-  description="Current, upcoming and past exhibitions curated by Azola Krweqe."
->
+<Base title={page.title} description={page.lede}>
   <header class="page-head wrap">
-    <p class="eyebrow">Exhibitions</p>
-    <h1>Exhibitions</h1>
-    <p class="lede">
-      Current, upcoming and past exhibitions, developed with artists, makers
-      and spaces.
-    </p>
+    <p class="eyebrow">{page.eyebrow}</p>
+    <h1>{page.title}</h1>
+    <p class="lede">{page.lede}</p>
   </header>
 
   <section class="section">
@@ -59,7 +54,7 @@ const exhibitions = (await getCollection('exhibitions')).sort(byOrder) as Exhibi
             </dl>
 
             <span class="text-link">
-              View exhibition <span aria-hidden="true">↗</span>
+              {page.viewLabel} <span aria-hidden="true">↗</span>
             </span>
           </div>
         </a>

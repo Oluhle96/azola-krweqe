@@ -240,11 +240,23 @@ content:
       - name: projectsHeading
         label: Projects section, heading
         type: string
+      - name: projectsLinkLabel
+        label: Projects link label
+        type: string
       - name: writingEyebrow
         label: Writing section, small heading
         type: string
       - name: writingHeading
         label: Writing section, heading
+        type: string
+      - name: writingLinkLabel
+        label: Writing link label
+        type: string
+      - name: exhibitionEyebrow
+        label: Exhibition section, small heading
+        type: string
+      - name: exhibitionButtonLabel
+        label: Exhibition button label
         type: string
 
   - name: about-page
@@ -380,7 +392,65 @@ content:
       - name: footerCredit
         label: Footer credit
         type: string
+      - name: footerHeading
+        label: Footer contact heading
+        type: text
+      - name: footerRole
+        label: Footer role line
+        type: string
+      - name: subscribeLabel
+        label: Subscribe button label
+        type: string
+      - name: navProjects
+        label: Navigation label — Projects
+        type: string
+      - name: navExhibitions
+        label: Navigation label — Exhibitions
+        type: string
+      - name: navWriting
+        label: Navigation label — Writing
+        type: string
+      - name: navAbout
+        label: Navigation label — About
+        type: string
+      - name: navContact
+        label: Navigation label — Contact
+        type: string
       - name: cvUrl
         label: CV file (leave empty for email requests)
         type: file
+
+  - name: projects-page
+    label: Projects page
+    path: src/data/pages/projects.json
+    type: file
+    fields:
+      - name: eyebrow
+        label: Small heading
+        type: string
+      - name: title
+        label: Page title
+        type: string
+      - name: lede
+        label: Introduction
+        type: text
+
+  - name: exhibitions-page
+    label: Exhibitions page
+    path: src/data/pages/exhibitions.json
+    type: file
+    fields:
+      - name: eyebrow
+        label: Small heading
+        type: string
+      - name: title
+        label: Page title
+        type: string
+      - name: lede
+        label: Introduction
+        type: text
+      - name: viewLabel
+        label: View exhibition link label
+        type: string
+
 

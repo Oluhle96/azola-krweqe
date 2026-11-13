@@ -14,6 +14,10 @@
   "practiceLinkLabel": "Read the full biography",
   "projectsEyebrow": "01 — Selected projects",
   "projectsHeading": "Work that begins with what is already there.",
+  "projectsLinkLabel": "All projects",
   "writingEyebrow": "02 — Writing",
-  "writingHeading": "Notes on images, archives and display."
+  "writingHeading": "Notes on images, archives and display.",
+  "writingLinkLabel": "All writing",
+  "exhibitionEyebrow": "Current exhibition",
+  "exhibitionButtonLabel": "Enter the exhibition"
 }

@@ -9,7 +9,7 @@ const year = new Date().getFullYear();
     <div class="footer-top">
       <div>
         <p class="eyebrow">Contact</p>
-        <h2 class="footer-title">For exhibitions, writing and collaborations.</h2>
+        <h2 class="footer-title">{site.footerHeading}</h2>
         <a class="footer-mail" href={`mailto:${site.email}`}>{site.email}</a>
       </div>
 
@@ -33,7 +33,7 @@ const year = new Date().getFullYear();
 
     <div class="footer-bottom">
       <span>© {year} Azola Krweqe</span>
-      <span>Artist &amp; curator</span>
+      <span>{site.footerRole}</span>
       <span>{site.footerCredit}</span>
     </div>
   </div>

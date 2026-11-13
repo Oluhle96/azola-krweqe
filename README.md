@@ -41,11 +41,12 @@ Projects live in `src/content/projects/*.md`, exhibitions in
 All are plain Markdown with a frontmatter block, so they can be edited in Pages
 CMS or directly in the repository.
 
-Page copy also lives in editable JSON files: `src/data/pages/home.json`,
-`about.json`, `contact.json`, `writing.json`, plus `src/data/settings.json`
-for contact details, social links, CV and the footer credit. These appear in
-Pages CMS as **Home page**, **About page**, **Contact page**, **Writing page**
-and **Site settings**.
+Page copy also lives in editable JSON files under `src/data/pages/` (home,
+projects, exhibitions, about, contact, writing), plus `src/data/settings.json`
+for contact details, social links, navigation labels, footer text, subscribe
+label, CV and the footer credit. These appear in Pages CMS as **Home page**,
+**Projects page**, **Exhibitions page**, **About page**, **Contact page**,
+**Writing page** and **Site settings**.
 
 To add a project or exhibition, copy an existing file, change the frontmatter,
 and add images to `public/images/`. The `cover` field is the card and hero
