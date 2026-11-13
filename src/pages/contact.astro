@@ -1,19 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
+import contact from '../data/pages/contact.json';
 import { site } from '../data/site';
 ---
 
-<Base
-  title="Contact"
-  description="Contact Azola Krweqe for exhibitions, writing, research and collaborations."
->
+<Base title="Contact" description={contact.lede}>
   <header class="page-head wrap">
-    <p class="eyebrow">Contact</p>
-    <h1>Let’s start a conversation.</h1>
-    <p class="lede">
-      For exhibitions, curatorial projects, writing, press and access
-      information.
-    </p>
+    <p class="eyebrow">{contact.eyebrow}</p>
+    <h1>{contact.title}</h1>
+    <p class="lede">{contact.lede}</p>
   </header>
 
   <section class="contact-hero wrap">
@@ -22,42 +17,23 @@ import { site } from '../data/site';
 
   <section class="wrap">
     <div class="contact-grid">
-      <div>
-        <h2>Exhibitions &amp; curating</h2>
-        <p>
-          Exhibition proposals, curatorial collaborations and institutional
-          enquiries.
-        </p>
-        <a href={`mailto:${site.email}?subject=Exhibition%20enquiry`}>Write to the studio</a>
-      </div>
-
-      <div>
-        <h2>Writing &amp; research</h2>
-        <p>
-          Commissions, essays, talks and editorial projects. Recent writing is
-          on <a href={site.substack} target="_blank" rel="noopener noreferrer">Substack</a>.
-        </p>
-        <a href={`mailto:${site.email}?subject=Writing%20enquiry`}>Discuss a project</a>
-      </div>
-
-      <div>
-        <h2>Press &amp; support</h2>
-        <p>
-          Press requests, access information and ways to support the work.
-          Please write with your deadline and requirements.
-        </p>
-        <a href={`mailto:${site.email}?subject=Press%20enquiry`}>Contact for press</a>
-      </div>
+      {contact.blocks.map((block) => (
+        <div>
+          <h2>{block.title}</h2>
+          <p>{block.text}</p>
+          <a href={`mailto:${site.email}?subject=${encodeURIComponent(block.subject)}`}>
+            {block.linkLabel}
+          </a>
+        </div>
+      ))}
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <p class="eyebrow">Elsewhere</p>
-      <h2>Follow the work.</h2>
-      <p class="lede">
-        Project notes, works in progress and new writing are shared online.
-      </p>
+      <p class="eyebrow">{contact.elsewhereEyebrow}</p>
+      <h2>{contact.elsewhereHeading}</h2>
+      <p class="lede">{contact.elsewhereLede}</p>
       <p style="margin-top:1.6rem;display:flex;gap:1.5rem;flex-wrap:wrap">
         <a class="text-link" href={site.substack} target="_blank" rel="noopener noreferrer">
           Substack <span aria-hidden="true">↗</span>

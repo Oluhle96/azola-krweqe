@@ -1,0 +1,28 @@
+{
+  "eyebrow": "Contact",
+  "title": "Let’s start a conversation.",
+  "lede": "For exhibitions, curatorial projects, writing, press and access information.",
+  "blocks": [
+    {
+      "title": "Exhibitions & curating",
+      "text": "Exhibition proposals, curatorial collaborations and institutional enquiries.",
+      "linkLabel": "Write to the studio",
+      "subject": "Exhibition enquiry"
+    },
+    {
+      "title": "Writing & research",
+      "text": "Commissions, essays, talks and editorial projects. Recent writing is on Substack.",
+      "linkLabel": "Discuss a project",
+      "subject": "Writing enquiry"
+    },
+    {
+      "title": "Press & support",
+      "text": "Press requests, access information and ways to support the work. Please write with your deadline and requirements.",
+      "linkLabel": "Contact for press",
+      "subject": "Press enquiry"
+    }
+  ],
+  "elsewhereEyebrow": "Elsewhere",
+  "elsewhereHeading": "Follow the work.",
+  "elsewhereLede": "Project notes, works in progress and new writing are shared online."
+}

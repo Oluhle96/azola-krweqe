@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import home from '../data/pages/home.json';
 import {
   byDate,
   byOrder,
@@ -17,24 +18,23 @@ const writing = (await getCollection('writing')).sort(byDate).slice(0, 3) as Pos
 const exhibitions = (await getCollection('exhibitions')).sort(byOrder);
 const currentExhibition = (exhibitions.find((exhibition: Exhibition) => exhibition.data.featured)
   ?? exhibitions[0]) as Exhibition | undefined;
+
+const practiceParagraphs = home.practiceBody.split(/\n\s*\n/).filter(Boolean);
 ---
 
 <Base>
   <section class="hero wrap">
     <div class="hero__grid">
       <div class="hero__title">
-        <p class="eyebrow">Artist &amp; curator</p>
+        <p class="eyebrow">{home.eyebrow}</p>
         <h1>
-          <span class="line">The everyday</span>
-          <span class="line">is the <em>archive.</em></span>
+          <span class="line">{home.heroTitleLine1}</span>
+          <span class="line">{home.heroTitleLine2Prefix} <em>{home.heroTitleAccent}</em></span>
         </h1>
       </div>
 
       <div class="hero__aside">
-        <p class="hero__lede">
-          Exhibition-making, moving image and the records we keep. A practice
-          built on the material of ordinary life.
-        </p>
+        <p class="hero__lede">{home.heroLede}</p>
         {currentExhibition && (
           <a class="btn" href={`/exhibitions/${currentExhibition.id}`}>
             {currentExhibition.data.title} — {currentExhibition.data.year} <span aria-hidden="true">↗</span>
@@ -45,41 +45,27 @@ const currentExhibition = (exhibitions.find((exhibition: Exhibition) => exhibiti
 
     <figure class="hero__figure">
       <img
-        src="/images/plate-01.svg"
-        alt="Abstract exhibition graphic in cream, black and deep red"
+        src={home.heroImage}
+        alt={home.heroImageAlt}
         width="1600"
         height="700"
         fetchpriority="high"
       />
       <figcaption>
-        <span>Home Affairs: The Everyday is the Archive</span>
-        <span>Exhibition identity, 2026</span>
+        <span>{home.heroCaptionLeft}</span>
+        <span>{home.heroCaptionRight}</span>
       </figcaption>
     </figure>
   </section>
 
   <section class="section">
     <div class="wrap intro-grid">
-      <p class="eyebrow">Practice</p>
+      <p class="eyebrow">{home.practiceEyebrow}</p>
       <div class="intro-copy">
-        <p class="intro-lede">
-          Azola Krweqe is an artist and curator whose work moves between
-          exhibition-making, moving image and research.
-        </p>
-        <p>
-          Her practice begins with what is already there — family photographs,
-          public records, the objects people keep — and asks how those materials
-          shape the stories we tell about ourselves. Projects are built slowly,
-          through conversation, and often take the form of a room to be entered
-          rather than a statement to be read.
-        </p>
-        <p>
-          Recent work brings artists and makers together around the archive as a
-          living room rather than a locked cabinet: something entered,
-          rearranged and returned to.
-        </p>
+        <p class="intro-lede">{home.practiceHeading}</p>
+        {practiceParagraphs.map((paragraph) => <p>{paragraph}</p>)}
         <a class="text-link" href="/about">
-          Read the full biography <span aria-hidden="true">↗</span>
+          {home.practiceLinkLabel} <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>
@@ -88,8 +74,8 @@ const currentExhibition = (exhibitions.find((exhibition: Exhibition) => exhibiti
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">01 — Selected projects</p>
-        <h2>Work that begins with what is already there.</h2>
+        <p class="eyebrow">{home.projectsEyebrow}</p>
+        <h2>{home.projectsHeading}</h2>
         <a class="text-link" href="/projects">
           All projects <span aria-hidden="true">↗</span>
         </a>
@@ -147,8 +133,8 @@ const currentExhibition = (exhibitions.find((exhibition: Exhibition) => exhibiti
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">02 — Writing</p>
-        <h2>Notes on images, archives and display.</h2>
+        <p class="eyebrow">{home.writingEyebrow}</p>
+        <h2>{home.writingHeading}</h2>
         <a class="text-link" href="/writing">
           All writing <span aria-hidden="true">↗</span>
         </a>
@@ -165,7 +151,12 @@ const currentExhibition = (exhibitions.find((exhibition: Exhibition) => exhibiti
             <time datetime={post.data.date.toISOString()}>
               {formatDate(post.data.date)}
             </time>
-            <h3>{post.data.title}</h3>
+            <div>
+              <h3>{post.data.title}</h3>
+              <p class="muted" style="margin-top:.45rem;font-size:.95rem">
+                {post.data.excerpt}
+              </p>
+            </div>
             <span class="arrow" aria-hidden="true">↗</span>
           </a>
         ))}

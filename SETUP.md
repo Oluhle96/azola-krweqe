@@ -39,8 +39,10 @@ Builds and their logs are visible in the Cloudflare dashboard:
 1. Install the Pages CMS GitHub app on the repository:
    <https://app.pagescms.org/>
 2. Sign in and open `Oluhle96/azola-krweqe`.
-3. The `.pages.yml` file defines three collections: **Projects**, **Exhibitions**
-   and **Writing**.
+3. The `.pages.yml` file defines three collections (**Projects**, **Exhibitions**,
+   **Writing**) plus editable pages (**Home page**, **About page**,
+   **Contact page**, **Writing page**) and **Site settings** for email, social
+   links, CV and the footer credit.
 4. Edits are committed to `main`, which starts a Cloudflare build
    automatically.
 
@@ -52,8 +54,9 @@ change a caption, publish, and confirm the site updates after the build.
 - Projects: `src/content/projects/*.md`
 - Exhibitions: `src/content/exhibitions/*.md`
 - Writing: `src/content/writing/*.md`
-- Images: `public/images/`
-- Site details (email, social links): `src/data/site.ts`
+- Page copy: `src/data/pages/*.json`
+- Contact details, social links and CV: `src/data/settings.json`
+- Site details and navigation: `src/data/site.ts`
 - Design tokens and layout: `src/styles/global.css`
 
 ## Local development

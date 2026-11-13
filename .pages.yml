@@ -189,3 +189,198 @@ content:
       - name: body
         label: Notes
         type: rich-text
+
+  - name: home-page
+    label: Home page
+    path: src/data/pages/home.json
+    type: file
+    fields:
+      - name: eyebrow
+        label: Small heading
+        type: string
+      - name: heroTitleLine1
+        label: Hero title, first line
+        type: string
+      - name: heroTitleLine2Prefix
+        label: Hero title, second line before accent
+        type: string
+      - name: heroTitleAccent
+        label: Hero title, italic accent
+        type: string
+      - name: heroLede
+        label: Hero introduction
+        type: text
+      - name: heroImage
+        label: Hero image
+        type: image
+      - name: heroImageAlt
+        label: Hero image description
+        type: text
+      - name: heroCaptionLeft
+        label: Hero caption, left
+        type: string
+      - name: heroCaptionRight
+        label: Hero caption, right
+        type: string
+      - name: practiceEyebrow
+        label: Practice section, small heading
+        type: string
+      - name: practiceHeading
+        label: Practice section, heading
+        type: text
+      - name: practiceBody
+        label: Practice text (blank line = new paragraph)
+        type: text
+      - name: practiceLinkLabel
+        label: Biography link label
+        type: string
+      - name: projectsEyebrow
+        label: Projects section, small heading
+        type: string
+      - name: projectsHeading
+        label: Projects section, heading
+        type: string
+      - name: writingEyebrow
+        label: Writing section, small heading
+        type: string
+      - name: writingHeading
+        label: Writing section, heading
+        type: string
+
+  - name: about-page
+    label: About page
+    path: src/data/pages/about.json
+    type: file
+    fields:
+      - name: eyebrow
+        label: Small heading
+        type: string
+      - name: title
+        label: Page title
+        type: string
+      - name: lede
+        label: Introduction
+        type: text
+      - name: portrait
+        label: Portrait image
+        type: image
+      - name: portraitAlt
+        label: Portrait image description
+        type: text
+      - name: portraitCaption
+        label: Portrait caption
+        type: string
+      - name: bio
+        label: Biography (blank line = new paragraph)
+        type: text
+      - name: cvLabel
+        label: CV button label
+        type: string
+      - name: workEyebrow
+        label: Selected work, small heading
+        type: string
+      - name: workHeading
+        label: Selected work, heading
+        type: string
+      - name: workNote
+        label: Selected work, note
+        type: string
+
+  - name: contact-page
+    label: Contact page
+    path: src/data/pages/contact.json
+    type: file
+    fields:
+      - name: eyebrow
+        label: Small heading
+        type: string
+      - name: title
+        label: Page title
+        type: string
+      - name: lede
+        label: Introduction
+        type: text
+      - name: blocks
+        label: Enquiry sections
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Section title
+            type: string
+          - name: text
+            label: Section text
+            type: text
+          - name: linkLabel
+            label: Link label
+            type: string
+          - name: subject
+            label: Email subject
+            type: string
+      - name: elsewhereEyebrow
+        label: Social section, small heading
+        type: string
+      - name: elsewhereHeading
+        label: Social section, heading
+        type: string
+      - name: elsewhereLede
+        label: Social section, introduction
+        type: text
+
+  - name: writing-page
+    label: Writing page
+    path: src/data/pages/writing.json
+    type: file
+    fields:
+      - name: eyebrow
+        label: Small heading
+        type: string
+      - name: title
+        label: Page title
+        type: string
+      - name: lede
+        label: Introduction
+        type: text
+      - name: subscribeEyebrow
+        label: Subscribe section, small heading
+        type: string
+      - name: subscribeHeading
+        label: Subscribe section, heading
+        type: string
+      - name: subscribeLede
+        label: Subscribe section, introduction
+        type: text
+      - name: subscribeLabel
+        label: Subscribe button label
+        type: string
+
+  - name: site-settings
+    label: Site settings
+    path: src/data/settings.json
+    type: file
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: role
+        label: Role
+        type: string
+      - name: description
+        label: Site description (used in search results)
+        type: text
+      - name: email
+        label: Contact email
+        type: string
+      - name: substack
+        label: Substack URL
+        type: string
+      - name: instagram
+        label: Instagram URL
+        type: string
+      - name: footerCredit
+        label: Footer credit
+        type: string
+      - name: cvUrl
+        label: CV file (leave empty for email requests)
+        type: file
+

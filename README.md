@@ -41,6 +41,12 @@ Projects live in `src/content/projects/*.md`, exhibitions in
 All are plain Markdown with a frontmatter block, so they can be edited in Pages
 CMS or directly in the repository.
 
+Page copy also lives in editable JSON files: `src/data/pages/home.json`,
+`about.json`, `contact.json`, `writing.json`, plus `src/data/settings.json`
+for contact details, social links, CV and the footer credit. These appear in
+Pages CMS as **Home page**, **About page**, **Contact page**, **Writing page**
+and **Site settings**.
+
 To add a project or exhibition, copy an existing file, change the frontmatter,
 and add images to `public/images/`. The `cover` field is the card and hero
 image; `gallery` takes an array of images with alt text and captions.
@@ -67,7 +73,8 @@ are original.
 
 ## Placeholders to replace before launch
 
-- **Contact details** in `src/data/site.ts`: email, Substack, Instagram
+- **Contact details** in `src/data/settings.json`: email, Substack, Instagram,
+  footer credit and CV (also editable in Pages CMS under **Site settings**)
 - **Domain** in `astro.config.mjs`, `public/robots.txt` and `src/data/site.ts`
   (currently the `workers.dev` address; change these three when
   `azolakrweqe.co.za` is registered and attached)
@@ -78,9 +85,10 @@ are original.
   layout purposes. Replace with Azola's approved text, credits and links.
 - **Home Affairs details**: dates, venue, access, programme, artists and
   supporters are marked "to be confirmed".
-- **CV**: currently "request by email". Add `public/cv.pdf` and link it in
-  `src/pages/about.astro` when the CV is approved.
-- **Footer credit**: "Site by [studio]" in `src/components/Footer.astro`.
+- **CV**: currently a "request by email" button. Upload a PDF under **Site
+  settings → CV file** in Pages CMS to switch it to a download.
+- **Footer credit**: "Site by [studio]", editable under **Site settings → Footer
+  credit**.
 
 ## Accessibility
 
