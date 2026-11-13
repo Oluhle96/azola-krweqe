@@ -1,6 +1,11 @@
 ---
 import { nav, site } from '../data/site';
 
+interface Props {
+  overlay?: boolean;
+}
+
+const { overlay = false } = Astro.props;
 const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
 
 const isActive = (href: string) =>
@@ -9,7 +14,7 @@ const isActive = (href: string) =>
     : path === href || path.startsWith(`${href}/`);
 ---
 
-<header class="site-header">
+<header class:list={['site-header', { 'site-header--overlay': overlay }]} data-overlay={overlay ? 'true' : undefined}>
   <div class="wrap header-inner">
     <a class="wordmark" href="/" aria-label="Azola Krweqe — home">
       <span>Azola</span><span>Krweqe<span class="dot">.</span></span>
@@ -48,8 +53,17 @@ const isActive = (href: string) =>
 </header>
 
 <script>
+  const header = document.querySelector<HTMLElement>('.site-header--overlay');
   const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
   const menu = document.getElementById('site-nav');
+
+  if (header) {
+    const onScroll = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 24);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
 
   if (toggle && menu) {
     const setOpen = (open: boolean) => {

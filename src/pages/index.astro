@@ -6,6 +6,7 @@ import {
   byDate,
   byOrder,
   formatDate,
+  site,
   type Exhibition,
   type Post,
   type Project,
@@ -22,10 +23,20 @@ const currentExhibition = (exhibitions.find((exhibition: Exhibition) => exhibiti
 const practiceParagraphs = home.practiceBody.split(/\n\s*\n/).filter(Boolean);
 ---
 
-<Base>
-  <section class="hero wrap">
-    <div class="hero__grid">
-      <div class="hero__title">
+<Base transparentHeader>
+  <section class="hero-hero">
+    <img
+      class="hero-hero__img"
+      src={home.heroImage}
+      alt={home.heroImageAlt}
+      width="1600"
+      height="900"
+      fetchpriority="high"
+    />
+    <div class="hero-hero__scrim" aria-hidden="true"></div>
+
+    <div class="wrap hero-hero__inner">
+      <div class="hero-hero__title">
         <p class="eyebrow">{home.eyebrow}</p>
         <h1>
           <span class="line">{home.heroTitleLine1}</span>
@@ -33,30 +44,42 @@ const practiceParagraphs = home.practiceBody.split(/\n\s*\n/).filter(Boolean);
         </h1>
       </div>
 
-      <div class="hero__aside">
+      <div class="hero-hero__foot">
         <p class="hero__lede">{home.heroLede}</p>
         {currentExhibition && (
-          <a class="btn" href={`/exhibitions/${currentExhibition.id}`}>
-            {currentExhibition.data.title} — {currentExhibition.data.year} <span aria-hidden="true">↗</span>
+          <a class="btn btn--light" href={`/exhibitions/${currentExhibition.id}`}>
+            {currentExhibition.data.title} — {currentExhibition.data.year}{' '}
+            <span aria-hidden="true">↗</span>
           </a>
         )}
       </div>
     </div>
 
-    <figure class="hero__figure">
-      <img
-        src={home.heroImage}
-        alt={home.heroImageAlt}
-        width="1600"
-        height="700"
-        fetchpriority="high"
-      />
-      <figcaption>
-        <span>{home.heroCaptionLeft}</span>
-        <span>{home.heroCaptionRight}</span>
-      </figcaption>
-    </figure>
+    <figcaption class="wrap hero-hero__caption">
+      <span>{home.heroCaptionLeft}</span>
+      <span>{home.heroCaptionRight}</span>
+    </figcaption>
   </section>
+
+  <nav class="index-strip" aria-label="Sections">
+    <div class="wrap index-strip__inner">
+      <a href="/projects">
+        <span class="num">01</span>
+        <span class="name">{site.navProjects}</span>
+        <span class="count">{projects.length} →</span>
+      </a>
+      <a href="/exhibitions">
+        <span class="num">02</span>
+        <span class="name">{site.navExhibitions}</span>
+        <span class="count">{exhibitions.length} →</span>
+      </a>
+      <a href="/writing">
+        <span class="num">03</span>
+        <span class="name">{site.navWriting}</span>
+        <span class="count">{writing.length} →</span>
+      </a>
+    </div>
+  </nav>
 
   <section class="section">
     <div class="wrap intro-grid">

@@ -68,11 +68,11 @@ fallback but is disabled. Workers Builds is the active pipeline.
 ## Design
 
 The visual direction takes cues from MOWAA (wearemowaa.org) and MBR Projects
-(mbrprojects.co.za): warm grey paper, classic black type, strong editorial
-hierarchy, oversized imagery and mono labels. The palette is deliberately
-monochrome — light greys, mid-grey accents and black bands — with no colour
-accent. It is not a reproduction — the type, layout system and content model
-are original.
+(mbrprojects.co.za): warm grey paper, classic black type, a full-bleed image
+hero with an overlaid transparent header, serif display type, thin rules,
+oversized imagery and mono labels. The palette is deliberately monochrome —
+light greys, mid-grey accents and black bands — with no colour accent. It is
+not a reproduction — the type, layout system and content model are original.
 
 ## Placeholders to replace before launch
 
@@ -81,9 +81,9 @@ are original.
 - **Domain** in `astro.config.mjs`, `public/robots.txt` and `src/data/site.ts`
   (currently the `workers.dev` address; change these three when
   `azolakrweqe.co.za` is registered and attached)
-- **Images**: all `public/images/plate-*.svg` and `portrait.svg` are temporary
-  graphic placeholders. Replace with approved artwork and photography, and
-  update the alt text.
+- **Images**: all `public/images/plate-*.svg`, `hero.svg` and `portrait.svg`
+  are temporary graphic placeholders. Replace with approved artwork and
+  photography, and update the alt text.
 - **Sample copy**: the three projects and three writing entries are drafts for
   layout purposes. Replace with Azola's approved text, credits and links.
 - **Home Affairs details**: dates, venue, access, programme, artists and
