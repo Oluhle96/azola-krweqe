@@ -1,6 +1,8 @@
 media:
   input: public/images
   output: /images
+  rename: safe
+  categories: [image, document]
 
 content:
   - name: projects
